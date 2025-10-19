@@ -5,9 +5,9 @@
 using namespace std;
 
 void OutputFormatter::printResults(const string& algorithm, const vector<Job>& result) {
-    cout << "\n" << string(80, '=') << endl;
+    cout << "\n" << string(90, '_') << endl;
     cout << algorithm << " SCHEDULING" << endl;
-    cout << string(80, '=') << endl;
+    cout << string(90, '_') << endl;
     
     cout << left << setw(8) << "Job" 
          << setw(15) << "Arrival Time"
@@ -15,7 +15,7 @@ void OutputFormatter::printResults(const string& algorithm, const vector<Job>& r
          << setw(18) << "Completion Time"
          << setw(18) << "Turnaround Time"
          << setw(15) << "Waiting Time" << endl;
-    cout << string(80, '-') << endl;
+    cout << string(90, '_') << endl;
     
     double totalWait = 0, totalTurnaround = 0;
     
@@ -31,7 +31,7 @@ void OutputFormatter::printResults(const string& algorithm, const vector<Job>& r
         totalTurnaround += job.turnaroundTime;
     }
     
-    cout << string(80, '-') << endl;
+    cout << string(90, '_') << endl;
     cout << fixed << setprecision(2);
     cout << "Average Waiting Time: " << totalWait / result.size() << " ms" << endl;
     cout << "Average Turnaround Time: " << totalTurnaround / result.size() << " ms" << endl;
@@ -39,9 +39,9 @@ void OutputFormatter::printResults(const string& algorithm, const vector<Job>& r
 
 void OutputFormatter::printComparisonTable(const vector<Job>& fcfs, const vector<Job>& sjn,
                                           const vector<Job>& srt, const vector<Job>& rr) {
-    cout << "\n" << string(80, '=') << endl;
+    cout << "\n" << string(90, '_') << endl;
     cout << "COMPARISON TABLE - AVERAGE METRICS" << endl;
-    cout << string(80, '=') << endl;
+    cout << string(90, '_') << endl;
     
     auto calcAvg = [](const vector<Job>& jobs, bool isWait) {
         double sum = 0;
@@ -54,7 +54,7 @@ void OutputFormatter::printComparisonTable(const vector<Job>& fcfs, const vector
     cout << left << setw(25) << "Algorithm"
          << setw(30) << "Average Waiting Time (ms)"
          << setw(25) << "Average Turnaround Time (ms)" << endl;
-    cout << string(80, '-') << endl;
+    cout << string(90, '_') << endl;
     
     cout << fixed << setprecision(2);
     cout << left << setw(25) << "FCFS"
@@ -73,5 +73,5 @@ void OutputFormatter::printComparisonTable(const vector<Job>& fcfs, const vector
          << setw(30) << calcAvg(rr, true)
          << setw(25) << calcAvg(rr, false) << endl;
     
-    cout << string(80, '=') << endl;
+    cout << string(85, '_') << endl;
 }
